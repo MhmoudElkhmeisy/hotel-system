@@ -69,18 +69,17 @@ export default function HomePage() {
             className="relative z-10"
           >
             <div className="inline-flex items-center rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-gray-600 shadow-sm backdrop-blur">
-              Hotel Operations System
+              Premium Hospitality Experience
             </div>
 
             <h1 className="mt-7 max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-[#0f172a] md:text-7xl xl:text-[92px]">
-              Intelligent Hotel
-              <span className="block text-[#6b7280]">Reservation Platform</span>
+              Welcome to
+              <span className="block text-[#6b7280]">Barklike Hotel</span>
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-600 md:text-xl">
-              A full reservation and occupancy management interface built to handle
-              bookings, room allocation, guest flow, cancellations, and operational
-              control through a polished, production-style dashboard experience.
+              Enjoy a refined stay with elegant rooms, smooth reservations, and dependable
+              service designed to make every visit comfortable from start to finish.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -88,22 +87,22 @@ export default function HomePage() {
                 href="/booking"
                 className="rounded-full bg-[#0f172a] px-7 py-4 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(15,23,42,0.22)] transition hover:-translate-y-0.5 hover:opacity-95"
               >
-                Launch Reservation
+                Book Your Stay
               </Link>
 
               <Link
                 href="/rooms"
                 className="rounded-full border border-black/10 bg-white/80 px-7 py-4 text-sm font-semibold text-[#0f172a] shadow-sm backdrop-blur transition hover:bg-white"
               >
-                View Rooms
+                Explore Rooms
               </Link>
             </div>
 
             <div className="mt-12 grid max-w-2xl gap-4 sm:grid-cols-3">
               {[
-                { label: "Occupancy", value: "84%", note: "Average room utilization" },
-                { label: "Bookings", value: "1.2k", note: "Monthly active reservations" },
-                { label: "Efficiency", value: "92%", note: "Operational workflow score" },
+                { label: "Guest Rating", value: "4.9", note: "Highly rated guest experience" },
+                { label: "Room Options", value: `${rooms.length}`, note: "Carefully selected room categories" },
+                { label: "Service", value: "24/7", note: "Support whenever you need it" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -138,13 +137,14 @@ export default function HomePage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-[0.24em] text-white/55">
-                      Reservation Preview
+                      Featured Stay
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold">
                       {rooms[0]?.name || "Executive Suite"}
                     </h3>
                     <p className="mt-2 text-sm text-white/65">
-                      Fast booking flow with date selection, guest count, and room assignment.
+                      Discover premium comfort with flexible dates, elegant room options, and a
+                      seamless reservation experience.
                     </p>
                   </div>
 
@@ -190,24 +190,24 @@ export default function HomePage() {
                 <div className="mt-8 rounded-[26px] bg-gradient-to-br from-white/12 to-white/5 p-4">
                   <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
-                      <p className="text-sm text-white/55">System Status</p>
-                      <h4 className="mt-1 text-xl font-semibold">Reservation Engine Active</h4>
+                      <p className="text-sm text-white/55">Guest Experience</p>
+                      <h4 className="mt-1 text-xl font-semibold">Reservations Available</h4>
                     </div>
                     <div className="h-3 w-3 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.8)]" />
                   </div>
 
                   <div className="grid gap-3 pt-4">
                     <div className="flex items-center justify-between rounded-2xl bg-white/6 px-4 py-3">
-                      <span className="text-sm text-white/70">Room matching</span>
-                      <span className="text-sm font-semibold">Enabled</span>
+                      <span className="text-sm text-white/70">Room selection</span>
+                      <span className="text-sm font-semibold">Available</span>
                     </div>
                     <div className="flex items-center justify-between rounded-2xl bg-white/6 px-4 py-3">
-                      <span className="text-sm text-white/70">Availability logic</span>
-                      <span className="text-sm font-semibold">Realtime</span>
+                      <span className="text-sm text-white/70">Live availability</span>
+                      <span className="text-sm font-semibold">Updated</span>
                     </div>
                     <div className="flex items-center justify-between rounded-2xl bg-white/6 px-4 py-3">
-                      <span className="text-sm text-white/70">Cancellation policy</span>
-                      <span className="text-sm font-semibold">Integrated</span>
+                      <span className="text-sm text-white/70">Guest support</span>
+                      <span className="text-sm font-semibold">Included</span>
                     </div>
                   </div>
                 </div>
@@ -254,8 +254,8 @@ export default function HomePage() {
           </div>
 
           <p className="max-w-xl text-lg text-gray-600">
-            The reservation interface supports multiple room classes with different
-            capacities, price ranges, and booking conditions.
+            Explore carefully selected room categories designed to deliver comfort,
+            elegance, and flexibility for every type of stay.
           </p>
         </motion.div>
 

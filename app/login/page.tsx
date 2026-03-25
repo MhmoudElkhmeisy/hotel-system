@@ -64,13 +64,10 @@ export default function LoginPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#0b1020] text-white">
-
-      {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1e293b_0%,#0b1020_45%,#050814_100%)]" />
       <div className="absolute left-[-120px] top-[-120px] h-[340px] w-[340px] rounded-full bg-fuchsia-500/10 blur-3xl" />
       <div className="absolute right-[-100px] bottom-[-80px] h-[320px] w-[320px] rounded-full bg-cyan-400/10 blur-3xl" />
 
-      {/* Lamp light */}
       <AnimatePresence>
         {isLightOn && (
           <>
@@ -90,7 +87,6 @@ export default function LoginPage() {
         )}
       </AnimatePresence>
 
-      {/* Lamp */}
       <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2">
         <div className="mx-auto h-20 w-1 bg-white/30" />
         <div className="relative mx-auto flex h-24 w-40 items-start justify-center overflow-hidden rounded-b-[70px] rounded-t-[10px] border border-white/10 bg-gradient-to-b from-[#374151] to-[#111827] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
@@ -103,7 +99,6 @@ export default function LoginPage() {
           />
         </div>
 
-        {/* Cord */}
         <div className="absolute left-1/2 top-[100px] -translate-x-1/2">
           <div className="h-28 w-[2px] bg-white/50" />
           <button
@@ -119,8 +114,6 @@ export default function LoginPage() {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20">
         <div className="grid w-full items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-
-          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,45 +122,42 @@ export default function LoginPage() {
             <h1 className="text-5xl font-semibold leading-tight md:text-7xl">
               Welcome to
               <span className="block text-yellow-300">
-                Aurora Grand Hotel
+                Barklike Hotel
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-white/60">
-              Experience luxury booking, seamless reservations, and intelligent
-              hotel management — all in one premium system.
+              Access a refined booking experience with elegant rooms, seamless reservations,
+              and dependable service designed to make every stay smooth from arrival to departure.
             </p>
 
             <div className="mt-8 flex gap-4">
               <div className="rounded-xl bg-white/5 px-4 py-3">
-                <p className="text-sm text-white/40">System</p>
-                <h3 className="font-semibold">Live & Secure</h3>
+                <p className="text-sm text-white/40">Experience</p>
+                <h3 className="font-semibold">Premium & Secure</h3>
               </div>
               <div className="rounded-xl bg-white/5 px-4 py-3">
                 <p className="text-sm text-white/40">Access</p>
-                <h3 className="font-semibold">Customer / Admin</h3>
+                <h3 className="font-semibold">Guest / Admin Portal</h3>
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT FORM */}
           <div className="flex justify-center lg:justify-end">
             {!isLightOn ? (
               <div className="text-center">
                 <h2 className="text-2xl text-white/60">
-                  Pull the lamp to unlock access
+                  Pull the lamp to begin your access
                 </h2>
               </div>
             ) : (
               <div className="w-full max-w-md rounded-[36px] border border-white/10 bg-white/10 p-8 backdrop-blur-xl shadow-2xl">
-
-                <h2 className="text-3xl font-semibold">Access Portal</h2>
-                <p className="text-white/60 mt-2">
-                  Choose your role and enter your details
+                <h2 className="text-3xl font-semibold">Welcome Back</h2>
+                <p className="mt-2 text-white/60">
+                  Select your access type and enter your details to continue.
                 </p>
 
                 <div className="mt-6 grid gap-4">
-
                   <input
                     type="text"
                     placeholder="Full Name"
@@ -178,7 +168,7 @@ export default function LoginPage() {
 
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email Address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="rounded-xl bg-white/10 px-4 py-3"
@@ -193,7 +183,6 @@ export default function LoginPage() {
                     <option className="text-black">Admin</option>
                   </select>
 
-                  {/* 👇 يظهر بس لو Admin */}
                   {role === "Admin" && (
                     <motion.input
                       initial={{ opacity: 0, y: 10 }}
@@ -202,16 +191,16 @@ export default function LoginPage() {
                       placeholder="Admin Access Code"
                       value={adminCode}
                       onChange={(e) => setAdminCode(e.target.value)}
-                      className="rounded-xl bg-white/10 px-4 py-3 border border-yellow-300"
+                      className="rounded-xl border border-yellow-300 bg-white/10 px-4 py-3"
                     />
                   )}
                 </div>
 
                 <button
                   onClick={handleLogin}
-                  className="mt-6 w-full rounded-full bg-yellow-300 py-3 font-semibold text-black hover:scale-[1.02] transition"
+                  className="mt-6 w-full rounded-full bg-yellow-300 py-3 font-semibold text-black transition hover:scale-[1.02]"
                 >
-                  Enter Platform
+                  Continue to Portal
                 </button>
               </div>
             )}
