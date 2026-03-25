@@ -1,18 +1,29 @@
 import { NextResponse } from "next/server";
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "@/app/lib/prisma";
 
-export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+type RouteContext = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+
+export async function PUT(request: Request, context: RouteContext) {
   try {
-    const offerId = Number(params.id);
+    const { id } = await context.params;
+    const offerId = Number(id);
     const body = await request.json();
 
     const { title, discount } = body as {
       title?: string;
       discount?: number;
     };
+
+    if (Number.isNaN(offerId)) {
+      return NextResponse.json(
+        { message: "Invalid offer ID" },
+        { status: 400 }
+      );
+    }
 
     if (!title || discount === undefined) {
       return NextResponse.json(
@@ -40,12 +51,17 @@ export async function PUT(
   }
 }
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: Request, context: RouteContext) {
   try {
-    const offerId = Number(params.id);
+    const { id } = await context.params;
+    const offerId = Number(id);
+
+    if (Number.isNaN(offerId)) {
+      return NextResponse.json(
+        { message: "Invalid offer ID" },
+        { status: 400 }
+      );
+    }
 
     await prisma.offer.delete({
       where: { id: offerId },
